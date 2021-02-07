@@ -4,7 +4,8 @@
     <string name="button_send">发送</string>
     <string name="text_view">TextView</string>
     <string name="button_insert">插入一条</string>
-    <string name="button_query">查询所有</string>
+    <string name="button_remove">删除首条</string>
+    <string name="button_clear">删除所有</string>
     <string name="none_data">没有可显示的数据</string>
 
 

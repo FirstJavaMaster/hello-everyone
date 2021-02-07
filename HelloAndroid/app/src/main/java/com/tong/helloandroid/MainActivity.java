@@ -18,13 +18,14 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.tong.helloandroid.MESSAGE";
 
+    private YetAdapter yetAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        YetAdapter yetAdapter = new YetAdapter(getApplicationContext());
+        yetAdapter = new YetAdapter(getApplicationContext());
 
         ListView listView = findViewById(R.id.listview);
         listView.setEmptyView(findViewById(R.id.empty));
@@ -34,8 +35,18 @@ public class MainActivity extends AppCompatActivity {
             toast.setText("你点击了第" + position + "项");
             toast.show();
         });
+    }
 
-        findViewById(R.id.insertButton).setOnClickListener(v -> yetAdapter.add());
+    public void add(View view) {
+        yetAdapter.add();
+    }
+
+    public void remove(View view) {
+        yetAdapter.remove();
+    }
+
+    public void clear(View view) {
+        yetAdapter.clear();
     }
 
     public void sendMessage(View view) {
@@ -46,7 +57,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void select(View view) {
-        System.out.println(LocalDateTime.now());
-    }
+
 }

@@ -73,6 +73,16 @@ public class YetAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    public void remove() {
+        mData.remove();
+        notifyDataSetChanged();
+    }
+
+    public void clear() {
+        mData.clear();
+        notifyDataSetChanged();
+    }
+
     static class ViewHolder {
         ImageView img_icon;
         TextView txt_aName;
