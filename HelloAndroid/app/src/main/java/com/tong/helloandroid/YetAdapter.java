@@ -40,16 +40,31 @@ public class YetAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
+        ViewHolder holder;
 
-        ImageView img_icon = convertView.findViewById(R.id.icon);
-        TextView txt_aName = convertView.findViewById(R.id.name);
-        TextView txt_aDesc = convertView.findViewById(R.id.desc);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.list_item, parent, false);
 
-        img_icon.setBackgroundResource(mData.get(position).getAIcon());
-        txt_aName.setText(mData.get(position).getAName());
-        txt_aDesc.setText(mData.get(position).getADesc());
+            holder = new ViewHolder();
+            holder.img_icon = convertView.findViewById(R.id.icon);
+            holder.txt_aName = convertView.findViewById(R.id.name);
+            holder.txt_aDesc = convertView.findViewById(R.id.desc);
+
+            convertView.setTag(holder);   //将Holder存储到convertView中
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.img_icon.setBackgroundResource(mData.get(position).getAIcon());
+        holder.txt_aName.setText(position + ". " + mData.get(position).getAName());
+        holder.txt_aDesc.setText(mData.get(position).getADesc());
 
         return convertView;
+    }
+
+    static class ViewHolder {
+        ImageView img_icon;
+        TextView txt_aName;
+        TextView txt_aDesc;
     }
 }

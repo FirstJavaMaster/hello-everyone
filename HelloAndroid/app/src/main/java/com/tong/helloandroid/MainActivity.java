@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mData.add(new YetLanguage("Swift", "Swift 是开发 Mac APP 和 iOS APP 的语言", R.drawable.images));
         mData.add(new YetLanguage("TypeScript", "TypeScript 是一种由微软开发的自由和开源的编程语言", R.drawable.images));
 
-        for (int i = 0; i < 96; i++) {
+        for (int i = 0; mData.size() < 1000; i++) {
             mData.add(mData.get(i % 4));
         }
 
