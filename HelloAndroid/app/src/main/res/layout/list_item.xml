@@ -7,10 +7,12 @@
     <!-- 定义一个用于显示头像的 ImageView -->
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
+        android:contentDescription="@string/app_name"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:baselineAlignBottom="true"
-        android:paddingLeft="8dp" />
+        android:paddingStart="8dp"
+        android:paddingEnd="0dp" />
 
     <!-- 定义一个竖直方向的 LinearLayout,把 语言 与 简介 的文本框设置出来 -->
     <LinearLayout
@@ -22,7 +24,8 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:textColor="#1D1D1C"
             android:textSize="20sp" />
 
@@ -30,7 +33,9 @@
             android:id="@+id/desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="8px"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="2dp"
             android:textColor="#B4B4B9"
             android:textSize="14sp" />
 
