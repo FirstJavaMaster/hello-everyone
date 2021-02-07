@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
+import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.LinkedList;
 
@@ -16,11 +17,10 @@ import java.util.LinkedList;
  * @date 2021/2/7 13:25
  */
 public class YetAdapter extends BaseAdapter {
-    private LinkedList<YetLanguage> mData;
-    private Context mContext;
+    private final LinkedList<YetLanguage> mData = new LinkedList<>();
+    private final Context mContext;
 
-    public YetAdapter(LinkedList<YetLanguage> mData, Context mContext) {
-        this.mData = mData;
+    public YetAdapter(Context mContext) {
         this.mContext = mContext;
     }
 
@@ -66,6 +66,11 @@ public class YetAdapter extends BaseAdapter {
         holder.checked.setChecked(yetLanguage.isChecked());
 
         return convertView;
+    }
+
+    public void add() {
+        mData.add(new YetLanguage(RandomStringUtils.randomAlphabetic(4), "", R.drawable.images, false));
+        notifyDataSetChanged();
     }
 
     static class ViewHolder {
