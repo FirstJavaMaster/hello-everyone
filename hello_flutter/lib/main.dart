@@ -71,8 +71,10 @@ class RandomWordsState extends State<RandomWords> {
   }
 
   Widget _buildSuggestions() {
-    // 放进去100个
-    _suggestions.addAll(generateWordPairs().take(100));
+    if (_suggestions.isEmpty) {
+      _suggestions.addAll(generateWordPairs().take(100));
+    }
+
     return new ListView.builder(
         padding: const EdgeInsets.all(16.0),
         // 对于每个建议的单词对都会调用一次itemBuilder，然后将单词对添加到ListTile行中
@@ -82,7 +84,7 @@ class RandomWordsState extends State<RandomWords> {
         itemBuilder: (context, i) {
           // 在每一列之前，添加一个1像素高的分隔线widget
           if (i.isOdd) return new Divider();
-          return _buildRow(i);
+          return _buildRow(i ~/ 2);
         });
   }
 
@@ -96,7 +98,11 @@ class RandomWordsState extends State<RandomWords> {
 
     return new ListTile(
       title: new Text(
-        pair.asPascalCase,
+        index.toString() +
+            "/" +
+            _suggestions.length.toString() +
+            "、" +
+            pair.asPascalCase,
         style: _biggerFont,
       ),
       trailing: new Icon(
