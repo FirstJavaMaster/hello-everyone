@@ -49,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
         yetAdapter.clear();
     }
 
+    public void update(View view) {
+        yetAdapter.update();
+    }
+
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = findViewById(R.id.editText);
@@ -56,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
     }
+
 
 
 }

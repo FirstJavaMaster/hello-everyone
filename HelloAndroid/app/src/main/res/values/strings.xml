@@ -7,6 +7,7 @@
     <string name="button_remove">删除首条</string>
     <string name="button_clear">删除所有</string>
     <string name="none_data">没有可显示的数据</string>
+    <string name="button_update">更新首条</string>
 
 
 </resources>

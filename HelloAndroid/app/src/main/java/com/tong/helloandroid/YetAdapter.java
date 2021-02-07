@@ -31,7 +31,7 @@ public class YetAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return mData.get(position);
     }
 
     @Override
@@ -80,6 +80,14 @@ public class YetAdapter extends BaseAdapter {
 
     public void clear() {
         mData.clear();
+        notifyDataSetChanged();
+    }
+
+    public void update() {
+        if (mData.isEmpty()) {
+            return;
+        }
+        mData.get(0).setAName(RandomStringUtils.randomAlphabetic(4));
         notifyDataSetChanged();
     }
 
