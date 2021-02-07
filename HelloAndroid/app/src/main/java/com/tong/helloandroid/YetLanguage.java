@@ -16,4 +16,5 @@ public class YetLanguage {
     private String aName;
     private String aDesc;
     private int aIcon;
+    private boolean checked;
 }

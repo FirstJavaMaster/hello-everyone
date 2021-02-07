@@ -30,12 +30,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         LinkedList<YetLanguage> mData = new LinkedList<>();
-        mData.add(new YetLanguage("Kotlin", "Kotlin 是运行在 Java 虚拟机上的静态语言，被称之为 Android 世界的 Swift", R.drawable.images));
-        mData.add(new YetLanguage("Scala", "Scala 是一门多范式（multi-paradigm）的编程语言", R.drawable.images));
-        mData.add(new YetLanguage("Swift", "Swift 是开发 Mac APP 和 iOS APP 的语言", R.drawable.images));
-        mData.add(new YetLanguage("TypeScript", "TypeScript 是一种由微软开发的自由和开源的编程语言", R.drawable.images));
+        mData.add(new YetLanguage("Kotlin", "Kotlin 是运行在 Java 虚拟机上的静态语言，被称之为 Android 世界的 Swift", R.drawable.images, true));
+        mData.add(new YetLanguage("Scala", "Scala 是一门多范式（multi-paradigm）的编程语言", R.drawable.images, false));
+        mData.add(new YetLanguage("Swift", "Swift 是开发 Mac APP 和 iOS APP 的语言", R.drawable.images, false));
+        mData.add(new YetLanguage("TypeScript", "TypeScript 是一种由微软开发的自由和开源的编程语言", R.drawable.images, true));
 
-        for (int i = 0; mData.size() < 1000; i++) {
+        for (int i = 0; mData.size() < 20; i++) {
             mData.add(mData.get(i % 4));
         }
 

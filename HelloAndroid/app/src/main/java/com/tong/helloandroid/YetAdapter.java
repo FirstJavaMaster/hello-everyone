@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,15 +50,20 @@ public class YetAdapter extends BaseAdapter {
             holder.img_icon = convertView.findViewById(R.id.icon);
             holder.txt_aName = convertView.findViewById(R.id.name);
             holder.txt_aDesc = convertView.findViewById(R.id.desc);
+            holder.checked = convertView.findViewById(R.id.checked);
 
             convertView.setTag(holder);   //将Holder存储到convertView中
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.img_icon.setBackgroundResource(mData.get(position).getAIcon());
-        holder.txt_aName.setText(position + ". " + mData.get(position).getAName());
-        holder.txt_aDesc.setText(mData.get(position).getADesc());
+        YetLanguage yetLanguage = mData.get(position);
+        holder.img_icon.setBackgroundResource(yetLanguage.getAIcon());
+        holder.txt_aName.setText(position + ". " + yetLanguage.getAName());
+        holder.txt_aDesc.setText(yetLanguage.getADesc());
+        // change事件绑定要在check值设置之前
+        holder.checked.setOnCheckedChangeListener((buttonView, isChecked) -> mData.get(position).setChecked(isChecked));
+        holder.checked.setChecked(yetLanguage.isChecked());
 
         return convertView;
     }
@@ -66,5 +72,6 @@ public class YetAdapter extends BaseAdapter {
         ImageView img_icon;
         TextView txt_aName;
         TextView txt_aDesc;
+        CheckBox checked;
     }
 }
