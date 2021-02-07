@@ -67,7 +67,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/queryButton" />
+        app:layout_constraintTop_toBottomOf="@+id/queryButton"
+        android:entries="@array/it_languages"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
