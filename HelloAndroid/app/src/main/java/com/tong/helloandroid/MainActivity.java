@@ -3,8 +3,10 @@ package com.tong.helloandroid;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.tong.helloandroid.config.AppDatabase;
 import com.tong.helloandroid.entity.User;
@@ -33,11 +35,20 @@ public class MainActivity extends AppCompatActivity {
         mData.add(new YetLanguage("Swift", "Swift 是开发 Mac APP 和 iOS APP 的语言", R.drawable.images));
         mData.add(new YetLanguage("TypeScript", "TypeScript 是一种由微软开发的自由和开源的编程语言", R.drawable.images));
 
+        for (int i = 0; i < 96; i++) {
+            mData.add(mData.get(i % 4));
+        }
+
         //创建一个 YetAdapter
         YetAdapter yetAdapter = new YetAdapter(mData, getApplicationContext());
 
         ListView listView = findViewById(R.id.listview);
         listView.setAdapter(yetAdapter);
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Toast toast = Toast.makeText(getApplicationContext(), "", Toast.LENGTH_SHORT);
+            toast.setText("你点击了第" + position + "项");
+            toast.show();
+        });
     }
 
     public void sendMessage(View view) {
