@@ -1,0 +1,17 @@
+spring:
+
+  datasource:
+    primary:
+      driver-class-name: oracle.jdbc.OracleDriver
+      jdbc-url: jdbc:oracle:thin:@10.20.20.239:1521:orcl
+      username: foo
+      password: foo
+    secondary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://10.20.147.81:33061/fa6_operation
+      username: foo
+      password: foo
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active: dev
